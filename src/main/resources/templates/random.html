@@ -7,8 +7,10 @@
 <body>
     <h1>Your list of <span th:text="${number}"/> random numbers</h1>
     <img th:each="randomNumber: ${list}"
-         th:src="@{'/numbers/'+ 'number'+ ${randomNumber} +'.jpg'}"
-         alt="number" width="250px">
+         th:src="@{${'/numbers/'+ 'number'+ randomNumber +'.jpg'}}" alt="number" width="250px">
+<!--         another expression method to pass the parameter-->
+<!--         th:src="@{'/numbers/'+ 'number'+ ${randomNumber} +'.jpg'}"-->
+
 
 </body>
 </html>
