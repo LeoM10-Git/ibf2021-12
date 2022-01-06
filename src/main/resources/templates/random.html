@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Random</title>
+</head>
+<body>
+    <h1>Your list of <span th:text="${number}"/> random numbers</h1>
+    <img th:each="randomNumber: ${list}"
+         th:src="@{'/numbers/'+ 'number'+ ${randomNumber} +'.jpg'}"
+         alt="number" width="250px">
+
+</body>
+</html>
