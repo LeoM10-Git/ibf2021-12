@@ -1,5 +1,6 @@
 package com.example.ibf2021d12.controller;
 
+import com.example.ibf2021d12.exception.RandomNumberException;
 import com.example.ibf2021d12.model.GenerateRandom;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +19,11 @@ public class HomeController {
     @GetMapping("/random")
     public String random(@RequestParam("number")Integer number, Model model){
         GenerateRandom generateRandom = new GenerateRandom();
-
+        if (number >30){
+//            throw new RandomNumberException();
+            model.addAttribute("errorMessage", "Number exceed 30!");
+            return "error";
+        }
         List<Integer> list = generateRandom.generateRandom(number);
         model.addAttribute("number", number);
         model.addAttribute("list", list);
